@@ -9,15 +9,15 @@ STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 
      #STEP 1: Use https://www.alphavantage.co/documentation/#daily
-# When stock price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
+# When stock price increases/decreases by 5% between yesterday and the day before yesterday then print("Get News").
 
-#TODO 1. - Get yesterday's closing stock price. Hint: You can perform list comprehensions on Python dictionaries. e.g. [new_value for (key, value) in dictionary.items()]
-API_KEY_Stock = "VCXZI7ANSNN5NR30"
+#TODO 1. - Get yesterday's closing stock price. Hint: You can perform list comprehensions on Python dictionaries. e.g. [new_value for (key, value) in the dictionary.items()]
+API_KEY_Stock = "your key"
 url = f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={STOCK_NAME}&apikey={API_KEY_Stock}'
 r = requests.get(url)
 data = r.json()
-#since the data list is so big we have to get the relevent data out from it
-#use list comprehention technique to get the relevent data
+#since the data list is so big we have to get the relevant data out of it
+#use the list comprehension technique to get the relevant data
 #  data_list = [new_item for item in list]    #
 
 data_list = [(value) for (key, value) in data.items()]
@@ -43,7 +43,7 @@ print("dbf yesterday closing:" ,dbf_yesterday_closing)
 difference = float(yesterday_closing) - float(dbf_yesterday_closing)
 positive_difference = abs(difference)
 
-#TODO 4. - Work out the percentage difference in price between closing price yesterday and closing price the day before yesterday.
+#TODO 4. - Work out the percentage difference in price between the closing price yesterday and the closing price the day before yesterday.
 
 percentage = float((difference/float(dbf_yesterday_closing))*100)
 
